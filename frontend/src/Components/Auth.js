@@ -36,6 +36,10 @@ function Auth() {
       })
       .catch((err) => console.log("err" + err));
     let data = await res.data;
+    dispatch({
+      type: "USER",
+      userName: data.user.name,
+    });
     return data;
   };
   
