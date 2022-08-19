@@ -63,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 function Headers({ classes }) {
   const [userName, setUserName] = useState("");
-  const [{ login, value }, dispatch] = UseStateValue();
+  const [{ login, value,userName }, dispatch] = UseStateValue();
 
   // ---------------------------------------------------------------------------------------
   const location = useLocation();
@@ -88,19 +88,6 @@ function Headers({ classes }) {
     localStorage.removeItem("userID");
   };
   let id = localStorage.getItem("userID");
-
-  const getUserName = async () => {
-    let data;
-    await axios
-      .get(`/api/blog/user/${id}`)
-      .then((response) => (data = response.data))
-      .catch((err) => console.log(err));
-    return data;
-  };
-
-  useEffect(() => {
-    getUserName().then((data) => setUserName(data.user.name));
-  });
 
   return (
     <div>
