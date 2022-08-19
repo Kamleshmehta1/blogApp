@@ -62,7 +62,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 function Headers({ classes }) {
-  const [userName, setUserName] = useState("");
   const [{ login, value,userName }, dispatch] = UseStateValue();
 
   // ---------------------------------------------------------------------------------------
